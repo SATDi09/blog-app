@@ -60,4 +60,9 @@ export class BlogController {
     async postComment(@Body() postcommentdto:PostCommentDTO,@GetUser() user:UserEntity,@GetBlog() blog:BlogEntity,@Param('id') id:string){
         return this.blogService.postComment(postcommentdto,user,blog,id)
     }
+
+    @Delete('/comment/:id')
+    deleteComments(@Param('id') id:number) {
+        return this.blogService.deleteComments(id)
+    }
 }
